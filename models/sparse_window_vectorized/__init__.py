@@ -1,0 +1,1 @@
+from .model import SparseWindowVectorizedTransformer, build_sparse_window_vectorized_transformer
