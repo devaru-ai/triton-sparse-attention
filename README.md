@@ -2,7 +2,7 @@
 
 Our work diagnoses a critical bottleneck in transformer scaling: a gap between the theoretical efficiency of sparse attention and its practical implementation. While vectorized PyTorch approaches offer incremental gains over naive implementations, they can actually be slower than a highly-optimized dense baseline for short sequences and fail completely due to quadratic memory requirements at long contexts. 
 
-By engineering a custom, hardware-aware Triton kernel, we fully realize the theoretical efficiency of sparse attention, achieving a speedup of **~14x at 8k tokens, ~24x at 16k tokens,** and up to **~44x at 32k tokens** over a dense baseline. This demonstrates that hardware-level optimization can transform sparse attention from a theoretical advantage into a massive practical win for long-context inference. We achieved this by **overcoming the significant latency of kernel launches, as each individual PyTorch operation adds a fixed overhead. By fusing all operations into a single Triton kernel, we eliminated this bottleneck.**
+By engineering a custom, hardware-aware Triton kernel, we fully realize the theoretical efficiency of sparse attention, achieving a speedup of **~14x at 8k tokens, ~24x at 16k tokens,** and up to **~44x at 32k tokens** over a dense baseline. This demonstrates that hardware-level optimization can transform sparse attention from a theoretical advantage into a  practical win for long-context inference. We achieved this by **overcoming the significant latency of kernel launches, as each individual PyTorch operation adds a fixed overhead. By fusing all operations into a single Triton kernel, we eliminated this bottleneck.**
 
 # Key Results
 
